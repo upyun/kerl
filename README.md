@@ -1,3 +1,10 @@
+### 前言
+适合国人使用的 Kerl, 由于 Erlang 源站点位于国外， 国内安装 Erlang 版本太慢了...
+
+现在将 [Erlang/download](http://www.erlang.org/download/) 站点下面的有效数据全部镜像到了
+[UPYUN](http://www.upyun.com) 上，得益于 UPYUN 强大的 CDN 功能，现在分分钟就能安装好一个 Erlang 版本。
+如果您想使用原先的 kerl 工具， 只需要将原先的 kerl 脚本中 `ERLANG_DOWNLOAD_URL` 更改到 `http://erlang.b0.upaiyun.com/download` 即可；或者根据下面的步骤安装。
+
 kerl
 ====
 
@@ -12,7 +19,7 @@ Downloading
 
 You can download the script directly from github:
 
-    $ curl -O https://raw.githubusercontent.com/spawngrid/kerl/master/kerl
+    $ curl -O https://raw.githubusercontent.com/upyun/kerl/master/kerl
 
 Then ensure it is executable
 
@@ -20,9 +27,9 @@ Then ensure it is executable
 
 and drop it in your $PATH
 
-Optionally download and install kerl's bash_completion file from https://github.com/spawngrid/kerl/raw/master/bash_completion/kerl
+Optionally download and install kerl's bash_completion file from https://github.com/upyun/kerl/raw/master/bash_completion/kerl
 
-Optionally download and install kerl's zsh-completion file from https://github.com/spawngrid/kerl/raw/master/zsh_completion/_kerl
+Optionally download and install kerl's zsh-completion file from https://github.com/upyun/kerl/raw/master/zsh_completion/_kerl
 
 
 How it works
@@ -163,7 +170,7 @@ You can set the following variables:
 - KERL_INSTALL_HTMLDOCS if non-empty will install HTML docs
 - KERL_DEPLOY_SSH_OPTIONS if additional options are required, e.g. "-qx -o PasswordAuthentication=no"
 - KERL_DEPLOY_RSYNC_OPTIONS if additional options are required, e.g. "--delete"
-- KERL_ENABLE_PROMPT if set, the prompt will be prefixed with the name of the active build 
+- KERL_ENABLE_PROMPT if set, the prompt will be prefixed with the name of the active build
 
 Note on .kerlrc
 ===============

@@ -21,7 +21,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-ERLANG_DOWNLOAD_URL=http://www.erlang.org/download
+ERLANG_DOWNLOAD_URL=http://erlang.b0.upaiyun.com/download
 
 KERL_BASE_DIR="$HOME/.kerl"
 KERL_CONFIG="$HOME/.kerlrc"
@@ -112,7 +112,7 @@ usage()
     echo "  build    Build specified release or git repository"
     echo "  install  Install the specified release at the given location"
     echo "  deploy   Deploy the specified installation to the given host and location"
-    echo "  update   Update the list of available releases from erlang.org"
+    echo "  update   Update the list of available releases from UPYUN"
     echo "  list     List releases, builds and installations"
     echo "  delete   Delete builds and installations"
     echo "  active   Print the path of the active installation"
@@ -134,7 +134,7 @@ get_releases()
 
 update_checksum_file()
 {
-    echo "Getting the checksum file from erlang.org..."
+    echo "Getting the checksum file from UPYUN..."
     curl -L $ERLANG_DOWNLOAD_URL/MD5 > "$KERL_DOWNLOAD_DIR/MD5" || exit 1
 }
 
@@ -148,7 +148,7 @@ ensure_checksum_file()
 check_releases()
 {
     if [ ! -f "$KERL_BASE_DIR/otp_releases" ]; then
-        echo "Getting the available releases from erlang.org..."
+        echo "Getting the available releases from UPYUN..."
         get_releases > "$KERL_BASE_DIR/otp_releases"
     fi
 }
@@ -456,7 +456,7 @@ kerl_deactivate()
     fi
     if [ -n "\$_KERL_ACTIVE_DIR" ]; then
         unset _KERL_ACTIVE_DIR
-    fi 
+    fi
     if [ -n "\$_KERL_SAVED_PS1" ]; then
         PS1="\$_KERL_SAVED_PS1"
         export PS1
@@ -786,7 +786,7 @@ case "$1" in
             releases)
                 check_releases
                 list_print $2 space
-                echo "Run \"$0 update releases\" to update this list from erlang.org"
+                echo "Run \"$0 update releases\" to update this list from UPYUN"
                 ;;
             builds)
                 list_print $2
